@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+
+<Pane prefHeight="800" prefWidth="1000.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo1.HelloController">
+    <GridPane fx:id="gameGridPane" prefHeight="646.0" prefWidth="782.0">
+    </GridPane>
+   <Slider fx:id="SizeGameBoardSlider" blockIncrement="5.0" layoutX="796.0" layoutY="53.0" majorTickUnit="5.0" max="50.0" min="10.0" minorTickCount="5" prefHeight="37.0" prefWidth="178.0" showTickLabels="true" showTickMarks="true" />
+   <Label fx:id="SizeGameBoardLabel" layoutX="796.0" layoutY="14.0" prefHeight="22.0" prefWidth="128.0" text="Розмір: 10х10">
+      <font>
+         <Font size="16.0" />
+      </font></Label>
+   <Button fx:id="CreateGameBoardButton" layoutX="830.0" layoutY="106.0" mnemonicParsing="false" onAction="#onCreateGameBoardButtonClick" prefHeight="37.0" prefWidth="111.0" text="Створити">
+      <font>
+         <Font size="15.0" />
+      </font></Button>
+   <Button fx:id="StartGameButton" layoutX="830.0" layoutY="166.0" mnemonicParsing="false" onAction="#onStartGameButtonClick" prefHeight="37.0" prefWidth="111.0" text="Почати">
+      <font>
+         <Font size="15.0" />
+      </font>
+   </Button>
+   <Button fx:id="StartAutomaticGameButton" layoutX="830.0" layoutY="166.0" mnemonicParsing="false" onAction="#onStartAutomaticGameButtonClick" prefHeight="37.0" prefWidth="111.0" text="Автоматично" visible="false">
+      <font>
+         <Font size="14.0" />
+      </font></Button>
+   <Button fx:id="StopAutomaticGameButton" layoutX="830.0" layoutY="166.0" mnemonicParsing="false" onAction="#onStopAutomaticGameButtonClick" prefHeight="37.0" prefWidth="111.0" text="Стоп" visible="false">
+      <font>
+         <Font size="15.0" />
+      </font>
+   </Button>
+   <Button fx:id="NextStepButton" layoutX="830.0" layoutY="106.0" mnemonicParsing="false" onAction="#onNextStepButtonClick" prefHeight="37.0" prefWidth="111.0" text="Наступний крок" visible="false" />
+   <Button fx:id="ReturnButton" layoutX="830.0" layoutY="225.0" mnemonicParsing="false" onAction="#onReturnButtonClick" prefHeight="37.0" prefWidth="111.0" text="Закінчити гру" visible="false" />
+   <Button fx:id="ToNewGameButton" layoutX="815.0" layoutY="738.0" mnemonicParsing="false" onAction="#onToNewGameButtonClick" prefHeight="37.0" prefWidth="140.0" text="Нова гра життя">
+      <font>
+         <Font size="16.0" />
+      </font></Button>
+   <Pane fx:id="NewGamePane" layoutX="787.0" layoutY="331.0" prefHeight="236.0" prefWidth="200.0" visible="false">
+      <children>
+         <Rectangle arcHeight="5.0" arcWidth="5.0" fill="RED" height="25.0" layoutX="87.0" layoutY="88.0" stroke="BLACK" strokeType="INSIDE" width="26.0" />
+         <Rectangle fx:id="Rectangle0" arcHeight="5.0" arcWidth="5.0" fill="#a9a9a9" height="25.0" layoutX="87.0" layoutY="51.0" stroke="BLACK" strokeType="INSIDE" width="26.0" />
+         <Rectangle fx:id="Rectangle1" arcHeight="5.0" arcWidth="5.0" fill="#a8a8a8" height="25.0" layoutX="128.0" layoutY="51.0" stroke="BLACK" strokeType="INSIDE" width="26.0" />
+         <Rectangle fx:id="Rectangle2" arcHeight="5.0" arcWidth="5.0" fill="#a9a9a9" height="25.0" layoutX="128.0" layoutY="88.0" stroke="BLACK" strokeType="INSIDE" width="26.0" />
+         <Rectangle fx:id="Rectangle3" arcHeight="5.0" arcWidth="5.0" fill="#a9a9a9" height="25.0" layoutX="128.0" layoutY="127.0" stroke="BLACK" strokeType="INSIDE" width="26.0" />
+         <Rectangle fx:id="Rectangle4" arcHeight="5.0" arcWidth="5.0" fill="#a9a9a9" height="25.0" layoutX="87.0" layoutY="127.0" stroke="BLACK" strokeType="INSIDE" width="26.0" />
+         <Rectangle fx:id="Rectangle5" arcHeight="5.0" arcWidth="5.0" fill="#a9a9a9" height="25.0" layoutX="48.0" layoutY="127.0" stroke="BLACK" strokeType="INSIDE" width="26.0" />
+         <Rectangle fx:id="Rectangle6" arcHeight="5.0" arcWidth="5.0" fill="#a9a9a9" height="25.0" layoutX="48.0" layoutY="88.0" stroke="BLACK" strokeType="INSIDE" width="26.0" />
+         <Rectangle fx:id="Rectangle7" arcHeight="5.0" arcWidth="5.0" fill="#a9a9a9" height="25.0" layoutX="48.0" layoutY="51.0" stroke="BLACK" strokeType="INSIDE" width="26.0" />
+
+
+
+
+         <ComboBox fx:id="NewGameComboBox" layoutX="53.0" layoutY="161.0" prefHeight="25.0" prefWidth="94.0" />
+         <Button fx:id="NewGameCellCreateButton" layoutX="59.0" layoutY="203.0" mnemonicParsing="false" onAction="#onNewGameCellCreateButtonClick" prefHeight="25.0" prefWidth="82.0" text="Створити" />
+      </children></Pane>
+   
+
+</Pane>
