@@ -1,14 +1,15 @@
 package com.example.demo1;
 import java.util.ArrayList;
 import java.util.Random;
+//Клас клітини для Нової гри Життя
 public class Cell {
     int row;
     int column;
     int logic_operation; // 0 - and, 1 - or, 2 - xor
     int status; // 0 або 1
     int current_iteration=0;
-    int change_important_neighbours;
-    boolean [] important_neighbours;
+    int change_important_neighbours;//кількість ітерацій для зміни сусідів, від яких ведуться розрахунки
+    boolean [] important_neighbours;//положення сусідів, від яких ведуться розрахунки, відносно поточної клітини
     Cell(int r, int c, int logic, int st, boolean [] neighbours, int current_iteration){
         row=r;
         column=c;
@@ -30,6 +31,8 @@ public class Cell {
         this.important_neighbours = other.important_neighbours.clone(); // Копіюємо масив
     }
 
+
+//Повертає координати поточних важливих сусідів на ігровому полі
     int[][] current_neighbours(int HEIGHT, int WIDTH) {
         int[] dx = {0, 1, 1, 1, 0, -1, -1, -1};
         int[] dy = {-1, -1, 0, 1, 1, 1, 0, -1};
@@ -51,7 +54,7 @@ public class Cell {
         // Повертаємо список важливих сусідів як масив
         return importantCoords.toArray(new int[importantCoords.size()][]);
     }
-
+ //Змінює сусідів, від яких ведуться розрахунки
     void change_important_neighbours(){
         current_iteration++;
         Random random = new Random();

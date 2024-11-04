@@ -2,6 +2,7 @@ package com.example.demo1;
 
 import java.util.ArrayList;
 
+//Класична гра Життя
 public class GameOfLife {
     int HEIGHT;
     int WIDTH;
@@ -20,9 +21,11 @@ public class GameOfLife {
 
     void nextStep() {
         int[][] newBoard = new int[HEIGHT][WIDTH];
+        //Проходимось по полю
 
         for (int row = 0; row < HEIGHT; row++) {
             for (int col = 0; col < WIDTH; col++) {
+                //Для кожної клітини рахуємо її живих сусідів
                 int liveNeighbors = countLiveNeighbors(row, col);
 
                 if (gameBoard[row][col] == 1) { // Жива клітина

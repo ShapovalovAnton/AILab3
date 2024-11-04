@@ -4,9 +4,9 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.Iterator;
-
-public class NewGame extends GameOfLife{
-    ArrayList<Cell> cells = new ArrayList<>();
+//Нова гра життя
+public class NewGame extends GameOfLife{ //Спадкує від класичної гри Життя
+    ArrayList<Cell> cells = new ArrayList<>(); // масив для зберігання живих клітин
     NewGame(int rows, int columns){
         HEIGHT=rows;
         WIDTH=columns;
@@ -14,6 +14,7 @@ public class NewGame extends GameOfLife{
         generateBoard();
     }
 
+    //Генерація стану поля
     void generateBoard() {
         Random random = new Random();
         for (int row = 0; row < HEIGHT; row++) {
@@ -26,21 +27,22 @@ public class NewGame extends GameOfLife{
     @Override
     void nextStep(){
         ArrayList<Cell> Next_cells = new ArrayList<>();
-        ArrayList<Cell> NewBorn = checkMeetCells();
+        ArrayList<Cell> NewBorn = checkMeetCells();//Перевіряємо новонароджені клітини
 
         for (Cell cell:cells) {
             Cell newCell = new Cell(cell.row,cell.column,cell.logic_operation,cell.status,cell.important_neighbours, cell.current_iteration);
             int row=cell.row;
             int col=cell.column;
-            int direction = check_important_neighbours(row,col,newCell);
+            int direction = check_important_neighbours(row,col,newCell);//повертає напрямок
             // Масив зсувів для перевірки 8 сусідніх клітин
             int[] dx = {0, 1, 1, 1, 0, -1, -1, -1};
             int[] dy = {-1, -1, 0, 1, 1, 1, 0, -1};
             int newRow = (row + dy[direction] + HEIGHT) % HEIGHT;
             int newCol = (col + dx[direction] + WIDTH) % WIDTH;
+            //змінюємо позицію клітини
             newCell.row=newRow;
             newCell.column=newCol;
-            newCell.change_important_neighbours();
+            newCell.change_important_neighbours();// за потреби змінюємо сусідів, за якими проводимо обчислення
             Next_cells.add(newCell);
 
         }
@@ -50,7 +52,7 @@ public class NewGame extends GameOfLife{
         printAllCells();
     }
 
-    // Функція для оновлення стану клітини
+    // Функція для оновлення стану клітини, повертає напрямок та змінює поточний стан
     int check_important_neighbours(int row, int col, Cell cell) {
 
         // Масив зсувів для перевірки 8 сусідніх клітин
@@ -78,7 +80,7 @@ public class NewGame extends GameOfLife{
             // Якщо сусід "живий", додаємо значення в direction
             boolean n_status=(gameBoard[neigh[0]][neigh[1]]==1);
             if (n_status) {
-                direction += Math.pow(2,n); // Зсув 1 на n позицій вліво, що еквівалентно 2^n
+                direction += Math.pow(2,n);
             }
             n++;
             // Виконуємо логічні операції
